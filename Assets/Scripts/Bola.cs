@@ -6,10 +6,13 @@ public class Bola : MonoBehaviour
 {
     Vector3 direccion;
     float velocidad;
+    Rigidbody rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -18,6 +21,6 @@ public class Bola : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
+        // transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
     }
 }
