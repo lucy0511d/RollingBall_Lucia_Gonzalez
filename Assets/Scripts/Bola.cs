@@ -23,4 +23,11 @@ public class Bola : MonoBehaviour
 
         // transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Coleccionable"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
