@@ -5,19 +5,13 @@ using UnityEngine;
 public class PlatformGiratoria : MonoBehaviour
 {
     [SerializeField] Vector3 vectorRot1;
-    [SerializeField] Vector3 vectorRot2;
+    [SerializeField] int velocidadRot;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddTorque(vectorRot1 * 500, ForceMode.VelocityChange);
-        rb.AddTorque(vectorRot2 * 500, ForceMode.VelocityChange);
-    }
+        rb.AddTorque(vectorRot1 * velocidadRot, ForceMode.VelocityChange);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

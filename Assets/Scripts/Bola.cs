@@ -85,9 +85,6 @@ public class Bola : MonoBehaviour
             virtualCamCenital.SetActive(false);
             virtualCamNormal.SetActive(true);
         }
-        if (other.gameObject.CompareTag("Muerte"))
-        {
-
-        }
+       
     }
 }
