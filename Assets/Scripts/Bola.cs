@@ -1,32 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bola : MonoBehaviour
 {
-    Vector3 movimiento;
-    // [SerializeField] TMP_Text textoPuntuacion;
+    [Header ("Audio")]
+    [SerializeField] AudioClip coleccionables;
+    [SerializeField] AudioManager managers;
+
+    [Header("Vida")]
+    [SerializeField] TMP_Text textoPuntuacion;
+    [SerializeField] int vidas = 100;
+    private int puntuacion;
+
+    [Header("Vida")]
+    [SerializeField] GameObject virtualCamCenital;
+    [SerializeField] GameObject virtualCamNormal;
+
+    [Header("Movimiento")]
     [SerializeField] float fuerza;
     [SerializeField] float distanciaDeteccionSuelo;
     [SerializeField] LayerMask queEsSuelo;
     float velocidad;
     Rigidbody rb;
     private float h, v;
-
-
-    // Start is called before the first frame update
+    Vector3 movimiento;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
         movimiento.x = h;
         movimiento.y = v;
+        Saltar();
        
     }
     bool DetectarSuelo()
@@ -40,12 +52,42 @@ public class Bola : MonoBehaviour
 
         rb.AddForce(new Vector3(h, 0, v).normalized * 0.1f, ForceMode.Force);
     }
+    void Saltar()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && DetectarSuelo()) 
+        { 
+          rb.AddForce(new Vector3(0,1,0).normalized * 3f, ForceMode.Impulse);
+
+        }
+    }
     
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Coleccionable"))
+        if(other.gameObject.CompareTag("Coleccionables"))
         {
+            managers.ReproducirSonido(coleccionables);
+            puntuacion++;
+            textoPuntuacion.SetText("Puntuación: " + puntuacion);
             Destroy(other.gameObject);
+
+        }
+        if (other.gameObject.CompareTag("CambioCamara"))
+        { 
+          virtualCamCenital.SetActive(true);
+          virtualCamNormal.SetActive(false);
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("CambioCamara"))
+        {
+            virtualCamCenital.SetActive(false);
+            virtualCamNormal.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("Muerte"))
+        {
+
         }
     }
 }
