@@ -10,9 +10,9 @@ public class CambiaCamaras : MonoBehaviour
     private void OnTriggerEnter (Collider other)
     {
       if (other.gameObject.CompareTag("Player"))
-        {
+      {
             cam1.SetActive(false);
             camCenital.SetActive(true);
-        }
+      }
     }
 }
