@@ -48,7 +48,7 @@ public class Bola : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.AddForce (new Vector3 (h, 0, v).normalized * 0.1f,ForceMode.Impulse);
+        rb.AddForce (new Vector3 (h, 0, v).normalized * 0.1f, ForceMode.Impulse);
 
         rb.AddForce(new Vector3(h, 0, v).normalized * 0.1f, ForceMode.Force);
     }
