@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class ParedCubos : MonoBehaviour
 {
     [SerializeField] private Rigidbody[] rbs;
+    [SerializeField] private float tiempoBala;
     
     private float timer = 0f;
     private bool iniciarCuenta = false;
@@ -14,18 +15,24 @@ public class ParedCubos : MonoBehaviour
        if (iniciarCuenta)
        {
             timer += 1 * Time.unscaledDeltaTime;
-            for (int i = 0; i < rbs.Length; i++) 
+            if (timer >= 2f) 
             {
-                rbs[i].useGravity = true;
+                Time.timeScale = 1f;
+                for (int i = 0; i < rbs.Length; i++)
+                {
+                    rbs[i].useGravity = true;
 
+                }
             }
+           
        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0.2f;
+            Time.timeScale = tiempoBala;
+            iniciarCuenta=true;
         }
     }
 }
