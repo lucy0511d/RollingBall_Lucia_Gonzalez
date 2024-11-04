@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class ParedCubos : MonoBehaviour
 {
     [SerializeField] private Rigidbody[] rbs;
-    [SerializeField] private float tiempoBala;
+    [SerializeField] private float tiempoBola;
     
     private float timer = 0f;
     private bool iniciarCuenta = false;
@@ -31,7 +31,7 @@ public class ParedCubos : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = tiempoBala;
+            Time.timeScale = tiempoBola;
             iniciarCuenta=true;
         }
     }

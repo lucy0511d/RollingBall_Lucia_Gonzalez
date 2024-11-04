@@ -9,9 +9,8 @@ public class Bola : MonoBehaviour
     [SerializeField] AudioClip coleccionables;
     [SerializeField] AudioManager managers;
 
-    [Header("Vida")]
+    [Header("Puntuacion")]
     [SerializeField] TMP_Text textoPuntuacion;
-    [SerializeField] int vidas = 100;
     private int puntuacion;
 
     [Header("Vida")]

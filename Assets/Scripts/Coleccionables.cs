@@ -27,4 +27,5 @@ public class Coleccionables : MonoBehaviour
             timer = 0;
         }
     }
+   
 }

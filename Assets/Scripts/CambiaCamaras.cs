@@ -15,4 +15,13 @@ public class CambiaCamaras : MonoBehaviour
             camCenital.SetActive(true);
       }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            cam1.SetActive(true);
+            camCenital.SetActive(false);
+        }
+    }
+
 }
