@@ -29,6 +29,7 @@ public class Bola : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        textoPuntuacion.SetText("Puntuacion: " + puntuacion);
     }
 
     void Update()
@@ -65,8 +66,8 @@ public class Bola : MonoBehaviour
         if(other.gameObject.CompareTag("Coleccionables"))
         {
             managers.ReproducirSonido(coleccionables);
-            puntuacion++;
-            textoPuntuacion.SetText("Puntuación: " + puntuacion);
+            puntuacion += 5;
+            textoPuntuacion.SetText("Puntuacion: " + puntuacion);
             Destroy(other.gameObject);
 
         }
@@ -76,7 +77,21 @@ public class Bola : MonoBehaviour
           virtualCamNormal.SetActive(false);
 
         }
+        if (other.gameObject.CompareTag("Muerte"))
+        {
+            rb = gameObject.GetComponent<Rigidbody>();
+            if(rb != null)
+            {
+                // Detener temporalmente las fisicas de la bola
+                rb.velocity = Vector3.zero;
+                // Mover al jugador a la posicion inicial
+                rb.MovePosition(new Vector3(-0.854f, 1.51f, -27.63f));
+                // Reactivar fisicas
+                rb.useGravity = true;
+            }
+        }
     }
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("CambioCamara"))

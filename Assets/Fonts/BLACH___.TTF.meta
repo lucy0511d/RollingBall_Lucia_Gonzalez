@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9ee5e547fd5fae4a91c30efad7717d2
+guid: 20e0030056f9371438eb72830efc7d6f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Super Earthly
+  - Blackletter
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

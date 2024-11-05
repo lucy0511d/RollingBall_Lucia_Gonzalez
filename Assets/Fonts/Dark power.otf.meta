@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26794a7e0800dd844875bc4ed404a122
+guid: 9bffda019b18f9c4d831a3047880fb67
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pokemon Solid
+  - Dark power
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
