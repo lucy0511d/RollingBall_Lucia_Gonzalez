@@ -256,16 +256,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: BOLINCHI
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4275776af7a238242a79444b809d1a9f, type: 2}
-  m_sharedMaterial: {fileID: -1071038619169920113, guid: 4275776af7a238242a79444b809d1a9f,
+  m_fontAsset: {fileID: 11400000, guid: e34db1011888c5d448de0be58b9dfae4, type: 2}
+  m_sharedMaterial: {fileID: -1655422213672511751, guid: e34db1011888c5d448de0be58b9dfae4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294309365
-  m_fontColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+    rgba: 4292598747
+  m_fontColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
