@@ -1,24 +1,32 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Bola : MonoBehaviour
 {
-    [Header ("Audio")]
+    [Header("Audio")]
+    
     [SerializeField] AudioClip coleccionables;
     [SerializeField] AudioClip muerte;
     [SerializeField] AudioManager managers;
 
     [Header("Puntuacion")]
+
     [SerializeField] TMP_Text textoPuntuacion;
     private int puntuacion;
 
     [Header("Vida")]
+
     [SerializeField] GameObject virtualCamCenital;
     [SerializeField] GameObject virtualCamNormal;
 
     [Header("Movimiento")]
+
     [SerializeField] float fuerza;
     [SerializeField] float distanciaDeteccionSuelo;
     [SerializeField] LayerMask queEsSuelo;
@@ -26,11 +34,17 @@ public class Bola : MonoBehaviour
     Rigidbody rb;
     private float h, v;
     Vector3 movimiento;
+
+    [Header("Canvas")]
+
+    [SerializeField] GameObject CanvasMuerte;
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         textoPuntuacion.SetText("Puntuacion: " + puntuacion);
+        muerte.enabled = false;
+        
     }
 
     void Update()
@@ -80,17 +94,22 @@ public class Bola : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Muerte"))
         {
-            managers.ReproducirSonidoCaida(muerte);
-            rb = gameObject.GetComponent<Rigidbody>();
-            if(rb != null)
-            {
-                // Detener temporalmente las fisicas de la bola
-                rb.velocity = Vector3.zero;
-                // Mover al jugador a la posicion inicial
-                rb.MovePosition(new Vector3(-0.854f, 1.51f, -27.63f));
-                // Reactivar fisicas
-                rb.useGravity = true;
-            }
+            //managers.ReproducirSonidoCaida(muerte);
+            //rb = gameObject.GetComponent<Rigidbody>();
+            //if(rb != null)
+            //{
+            //    // Detener temporalmente las fisicas de la bola
+            //    rb.velocity = Vector3.zero;
+            //    // Mover al jugador a la posicion inicial
+            //    rb.MovePosition(new Vector3(-0.854f, 1.51f, -27.63f));
+            //    // Reactivar fisicas
+            //    rb.useGravity = true;
+            //}
+           CanvasMuerte.SetActive(true);
+           //managers.enabled = false;
+           //muerte.enabled = true;
+
+
         }
     }
     

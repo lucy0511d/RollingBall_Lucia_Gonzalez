@@ -14,4 +14,8 @@ public class CanvasManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void Respawn()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
