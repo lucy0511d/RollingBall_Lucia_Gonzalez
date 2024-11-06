@@ -6,13 +6,16 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bola : MonoBehaviour
 {
     [Header("Audio")]
     
     [SerializeField] AudioClip coleccionables;
+    [SerializeField] AudioClip salto;
     [SerializeField] AudioClip muerte;
+    [SerializeField] AudioSource fondo;
     [SerializeField] AudioManager managers;
 
     [Header("Puntuacion")]
@@ -37,14 +40,18 @@ public class Bola : MonoBehaviour
 
     [Header("Canvas")]
 
-    [SerializeField] GameObject CanvasMuerte;
     
+    [SerializeField] GameObject CanvasPuntuacion;
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         textoPuntuacion.SetText("Puntuacion: " + puntuacion);
-        muerte.enabled = false;
-        
+        //muerte.enabled = false;
+       // CanvasMuerte.SetActive(false);
+        CanvasPuntuacion.SetActive(true);
+
     }
 
     void Update()
@@ -72,7 +79,8 @@ public class Bola : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && DetectarSuelo()) 
         { 
           rb.AddForce(new Vector3(0,1,0).normalized * 3f, ForceMode.Impulse);
-
+            managers.ReproducirSonidoSalto(salto);
+          
         }
     }
     
@@ -105,11 +113,11 @@ public class Bola : MonoBehaviour
             //    // Reactivar fisicas
             //    rb.useGravity = true;
             //}
-           CanvasMuerte.SetActive(true);
+           
            //managers.enabled = false;
            //muerte.enabled = true;
-
-
+           
+           managers.ReproducirSonidoCaida(muerte);
         }
     }
     
@@ -120,6 +128,16 @@ public class Bola : MonoBehaviour
             virtualCamCenital.SetActive(false);
             virtualCamNormal.SetActive(true);
         }
-       
+        if (other.gameObject.CompareTag("Muerte"))
+        {
+            CanvasPuntuacion.SetActive(false);
+            fondo.Stop();
+            // CanvasMuerte.SetActive(true);
+            SceneManager.LoadScene(2);
+            Destroy(gameObject);
+            
+            
+        }
+
     }
 }
