@@ -7,6 +7,7 @@ public class Bola : MonoBehaviour
 {
     [Header ("Audio")]
     [SerializeField] AudioClip coleccionables;
+    [SerializeField] AudioClip muerte;
     [SerializeField] AudioManager managers;
 
     [Header("Puntuacion")]
@@ -65,7 +66,7 @@ public class Bola : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coleccionables"))
         {
-            managers.ReproducirSonido(coleccionables);
+            managers.ReproducirSonidoColeccionable(coleccionables);
             puntuacion += 5;
             textoPuntuacion.SetText("Puntuacion: " + puntuacion);
             Destroy(other.gameObject);
@@ -79,6 +80,7 @@ public class Bola : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Muerte"))
         {
+            managers.ReproducirSonidoCaida(muerte);
             rb = gameObject.GetComponent<Rigidbody>();
             if(rb != null)
             {
