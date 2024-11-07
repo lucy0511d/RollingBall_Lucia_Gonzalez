@@ -23,10 +23,16 @@ public class Bola : MonoBehaviour
     [SerializeField] TMP_Text textoPuntuacion;
     private int puntuacion;
 
-    [Header("Vida")]
+    [Header("Camaras")]
 
     [SerializeField] GameObject virtualCamCenital;
     [SerializeField] GameObject virtualCamNormal;
+
+    [Header("Vida")]
+
+    private int vida = 10;
+    [SerializeField] TMP_Text textoVidas;
+    // private float timer; ----
 
     [Header("Movimiento")]
 
@@ -39,8 +45,6 @@ public class Bola : MonoBehaviour
     Vector3 movimiento;
 
     [Header("Canvas")]
-
-    
     [SerializeField] GameObject CanvasPuntuacion;
     
 
@@ -48,8 +52,8 @@ public class Bola : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         textoPuntuacion.SetText("Puntuacion: " + puntuacion);
+        textoVidas.SetText("Vidas: " + vida);
         //muerte.enabled = false;
-       // CanvasMuerte.SetActive(false);
         CanvasPuntuacion.SetActive(true);
 
     }
@@ -61,6 +65,7 @@ public class Bola : MonoBehaviour
         movimiento.x = h;
         movimiento.y = v;
         Saltar();
+        
        
     }
     bool DetectarSuelo()
@@ -83,6 +88,7 @@ public class Bola : MonoBehaviour
           
         }
     }
+   
     
     private void OnTriggerEnter(Collider other)
     {
@@ -98,6 +104,16 @@ public class Bola : MonoBehaviour
         { 
           virtualCamCenital.SetActive(true);
           virtualCamNormal.SetActive(false);
+
+        }
+        if (other.gameObject.CompareTag("Trampas"))
+        {
+            vida--;
+            textoVidas.SetText("Vidas: " + vida);
+            if (vida <=0)
+            {
+                SceneManager.LoadScene(2);
+            }
 
         }
         if (other.gameObject.CompareTag("Muerte"))
@@ -132,7 +148,6 @@ public class Bola : MonoBehaviour
         {
             CanvasPuntuacion.SetActive(false);
             fondo.Stop();
-            // CanvasMuerte.SetActive(true);
             SceneManager.LoadScene(2);
             Destroy(gameObject);
             
