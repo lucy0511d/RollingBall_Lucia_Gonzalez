@@ -5,10 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
+    float contador = 2f;
+    float delay;
+    [SerializeField] GameObject audioManager;
     public void EmpezarPartida()
+      
     {
+        //Time.timeScale = 0;
+        //delay = contador;
+        //if (delay == contador && Time.timeScale == 0)
+        //{ 
+        //    delay -= contador * Time.deltaTime;
+        //
+        //    if (delay <= 0)
+        //    {
+        //        
+        //        SceneManager.LoadScene(1);
+        //        delay = contador;
+        //
+        //    }
+        //
+        //}
         //Cargar Escena 1
+        
+          
         SceneManager.LoadScene(1);
+        
+
     }
     public void SalirJuego()
     {
@@ -19,6 +42,10 @@ public class CanvasManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
     public void Respawn()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Restart()
     {
         SceneManager.LoadScene(1);
     }

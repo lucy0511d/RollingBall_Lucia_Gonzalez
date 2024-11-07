@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class Bola : MonoBehaviour
     [SerializeField] AudioClip coleccionables;
     [SerializeField] AudioClip salto;
     [SerializeField] AudioClip muerte;
-    [SerializeField] AudioSource fondo;
+    [SerializeField] AudioClip fondo;
     [SerializeField] AudioManager managers;
 
     [Header("Puntuacion")]
@@ -83,7 +84,7 @@ public class Bola : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && DetectarSuelo()) 
         { 
-          rb.AddForce(new Vector3(0,1,0).normalized * 3f, ForceMode.Impulse);
+          rb.AddForce(new Vector3(0,1,0).normalized * 3.5f, ForceMode.Impulse);
             managers.ReproducirSonidoSalto(salto);
           
         }
@@ -106,7 +107,13 @@ public class Bola : MonoBehaviour
           virtualCamNormal.SetActive(false);
 
         }
-        
+        if (other.gameObject.CompareTag("Premio"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(3);
+
+        }
+
         if (other.gameObject.CompareTag("Muerte"))
         {
             //managers.ReproducirSonidoCaida(muerte);
@@ -120,11 +127,12 @@ public class Bola : MonoBehaviour
             //    // Reactivar fisicas
             //    rb.useGravity = true;
             //}
+
+            //managers.enabled = false;
+            //muerte.enabled = true;
+            
+            managers.ReproducirSonidoCaida(muerte);
            
-           //managers.enabled = false;
-           //muerte.enabled = true;
-           
-           managers.ReproducirSonidoCaida(muerte);
         }
     }
     
@@ -138,7 +146,7 @@ public class Bola : MonoBehaviour
         if (other.gameObject.CompareTag("Muerte"))
         {
             CanvasPuntuacion.SetActive(false);
-            fondo.Stop();
+            Destroy(managers);
             SceneManager.LoadScene(2);
             Destroy(gameObject);
             

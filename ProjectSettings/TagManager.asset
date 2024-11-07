@@ -9,6 +9,7 @@ TagManager:
   - Muerte
   - Interact
   - Trampas
+  - Premio
   layers:
   - Default
   - TransparentFX

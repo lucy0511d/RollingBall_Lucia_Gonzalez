@@ -28,6 +28,8 @@ public class AudioManager : MonoBehaviour
         Spotify.PlayOneShot(sonidoSalto);
 
     }
-
    
+
+
+
 }

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
     [SerializeField] Vector3 miVector;
     [SerializeField] float velocidad;
+
+    
     float timer = 0f;
     
     // Start is called before the first frame update
@@ -19,6 +22,7 @@ public class Plataforma : MonoBehaviour
     {
         timer += Time.deltaTime;
         transform.Translate(miVector * velocidad * Time.deltaTime);
+        
         if (timer >= 2f)
         {
             miVector = miVector * -1;
