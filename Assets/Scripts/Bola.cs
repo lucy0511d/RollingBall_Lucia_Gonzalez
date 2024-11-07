@@ -106,16 +106,7 @@ public class Bola : MonoBehaviour
           virtualCamNormal.SetActive(false);
 
         }
-        if (other.gameObject.CompareTag("Trampas"))
-        {
-            vida--;
-            textoVidas.SetText("Vidas: " + vida);
-            if (vida <=0)
-            {
-                SceneManager.LoadScene(2);
-            }
-
-        }
+        
         if (other.gameObject.CompareTag("Muerte"))
         {
             //managers.ReproducirSonidoCaida(muerte);
@@ -155,4 +146,18 @@ public class Bola : MonoBehaviour
         }
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Trampas"))
+        {
+            vida--;
+            textoVidas.SetText("Vidas: " + vida);
+            if (vida <= 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+
+        }
+    }
+
 }

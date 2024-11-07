@@ -156,7 +156,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 94754315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.6818296, z: -0, w: -0.73151106}
-  m_LocalPosition: {x: 6.69, y: -4.31711, z: 13.104}
+  m_LocalPosition: {x: 2.17, y: 0.86, z: -25.7}
   m_LocalScale: {x: 2.0277998, y: 0.11756, z: 4.1757007}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   textoPuntuacion: {fileID: 1874646299}
   virtualCamCenital: {fileID: 767256001}
   virtualCamNormal: {fileID: 370596729}
-  textoVidas: {fileID: 0}
+  textoVidas: {fileID: 1611708876}
   fuerza: 2.5
   distanciaDeteccionSuelo: 0.5
   queEsSuelo:
@@ -3341,8 +3341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 522, y: 0.5}
-  m_SizeDelta: {x: 142.4781, y: 34.8427}
+  m_AnchoredPosition: {x: 465, y: 0.5}
+  m_SizeDelta: {x: 200.3301, y: 34.8427}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1611708876
 MonoBehaviour:
