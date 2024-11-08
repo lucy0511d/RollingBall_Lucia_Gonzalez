@@ -87,6 +87,7 @@ public class Bola : MonoBehaviour
           
         }
     }
+    
    
     
     private void OnTriggerEnter(Collider other)
@@ -128,7 +129,7 @@ public class Bola : MonoBehaviour
 
             //managers.enabled = false;
             //muerte.enabled = true;
-            
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             managers.ReproducirSonidoCaida(muerte);
            
         }

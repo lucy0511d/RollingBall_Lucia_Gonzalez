@@ -49,4 +49,13 @@ public class CanvasManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void Help()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void VolverAlInicio()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

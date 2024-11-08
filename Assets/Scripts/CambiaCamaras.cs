@@ -6,9 +6,11 @@ public class CambiaCamaras : MonoBehaviour
 {
     [SerializeField] private GameObject cam1;
     [SerializeField] private GameObject camCenital;
+    
     private void Start()
     {
         camCenital.SetActive(false);
+        
 
     }
 
@@ -19,6 +21,7 @@ public class CambiaCamaras : MonoBehaviour
             cam1.SetActive(false);
             camCenital.SetActive(true);
       }
+     
     }
     private void OnTriggerExit(Collider other)
     {
@@ -28,5 +31,6 @@ public class CambiaCamaras : MonoBehaviour
             camCenital.SetActive(false);
         }
     }
+    
 
 }
