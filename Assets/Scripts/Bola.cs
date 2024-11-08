@@ -16,7 +16,6 @@ public class Bola : MonoBehaviour
     [SerializeField] AudioClip coleccionables;
     [SerializeField] AudioClip salto;
     [SerializeField] AudioClip muerte;
-    [SerializeField] AudioClip fondo;
     [SerializeField] AudioManager managers;
 
     [Header("Puntuacion")]
@@ -33,7 +32,6 @@ public class Bola : MonoBehaviour
 
     private int vida = 10;
     [SerializeField] TMP_Text textoVidas;
-    // private float timer; ----
 
     [Header("Movimiento")]
 
