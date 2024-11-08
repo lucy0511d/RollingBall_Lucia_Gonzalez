@@ -129,7 +129,7 @@ public class Bola : MonoBehaviour
 
             //managers.enabled = false;
             //muerte.enabled = true;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            
             managers.ReproducirSonidoCaida(muerte);
            
         }
@@ -147,9 +147,10 @@ public class Bola : MonoBehaviour
             CanvasPuntuacion.SetActive(false);
             Destroy(managers);
             SceneManager.LoadScene(2);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             Destroy(gameObject);
             
-            
+
         }
 
     }
