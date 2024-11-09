@@ -16,8 +16,8 @@ EditorBuildSettings:
     guid: 94fe00af3243b3d4fa5da6b1d0b12dba
   - enabled: 1
     path: Assets/Scenes/Final.unity
-    guid: cb322e6035a22db479bbd926fbc857fb
+    guid: 692007694208d9e42bce059e5b5999c7
   - enabled: 1
-    path: Assets/Scenes/Ayuda.unity
-    guid: b46af6b8dc33c6441bdccc0cfd3da4b9
+    path: Assets/Scenes/Ayudita.unity
+    guid: f0d9877bd36502044a3808d1a1af61f6
   m_configObjects: {}
