@@ -45,6 +45,7 @@ public class Bola : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] GameObject CanvasPuntuacion;
     
+    
 
     void Start()
     {
@@ -53,7 +54,7 @@ public class Bola : MonoBehaviour
         textoVidas.SetText("Vidas: " + vida);
         //muerte.enabled = false;
         CanvasPuntuacion.SetActive(true);
-
+        
     }
 
     void Update()
